@@ -27,6 +27,10 @@ Event.init(
       allowNull: false,
 
     },
+    category: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     covid_items: {
       type: DataTypes.FLOAT,
       allowNull: false,
