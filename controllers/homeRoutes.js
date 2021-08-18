@@ -25,7 +25,25 @@ router.get('./', async (req, res) => {
     }
 });
 
-router.get('./event/:id', withAuth)
+router.get('./event/:id', async (req, res) => {
+    try {
+        const eventData = await Event.findByPK(req.params.id, {
+            include: {
+                model: User,
+                attributes: ['username'],
+            },
+        });
+
+        const event = eventData.get({ plain: true });
+
+        res.render('event', {
+            ...event,
+            logged_in: req.session.logged_in
+        });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
 
 
 router.get('/dashboard', withAuth, async (req, res) => {
