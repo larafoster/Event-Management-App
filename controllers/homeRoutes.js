@@ -28,25 +28,6 @@ router.get('./', async (req, res) => {
 router.get('./event/:id', withAuth)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 router.get('/dashboard', withAuth, async (req, res) => {
     try{
     
