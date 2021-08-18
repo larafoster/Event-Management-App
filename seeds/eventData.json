@@ -3,22 +3,22 @@
       "name": "Farmer's Market",
       "description": "a market from the farm",
       "event_time": "9:00",
-      "event_date": "June",
-      "covid-items": "mask optional"
+      "event_date": "06/01/2021",
+      "covid_items": "mask optional"
     },
     {
       "name": "Fireworks",
       "description": "sparks",
       "event_time": "9:00",
-      "event_date": "July",
-      "covid-items": "mask optional"
+      "event_date": "06/01/2021",
+      "covid_items": "mask optional"
     },
     {
       "name": "goat farm",
       "description": "a farm with goats",
       "event_time": "9:00",
-      "event_date": "July",
-      "covid-items": "mask needed"
+      "event_date": "06/01/2021",
+      "covid_items": "mask needed"
 
     },
     {
@@ -26,7 +26,7 @@
       "description": "many pumpkins",
       "event_time": "9:00",
       "event_date": "September",
-      "covid-items": "mask optional"
+      "covid_items": "mask optional"
 
     },
     {
@@ -34,7 +34,7 @@
       "description": "gouda",
       "event_time": "9:00",
       "event_date": "June",
-      "covid-items": "mask required"
+      "covid_items": "mask required"
 
     }
   ]
