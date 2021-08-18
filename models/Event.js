@@ -1,6 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-const date = require('date-fns');
+var format = require('date-fns/format');
 
 class Event extends Model {}
 
@@ -44,6 +44,21 @@ Event.init(
       },
     },
   },
+
+  { 
+    hooks: {
+      beforeCreate: async (timeData) => {
+        timeData.event_time = await date.format(date, [format= 'dddd-MMMM-Qo', [options]]);
+        return timeData;
+      },
+      beforeUpdate: async (updatedTimeData) => {
+        updatedTimeData.event_time = await date.format(date, [format= 'dddd-MMMM-Qo', [options]]);
+        return updatedTimeData;
+      },
+    },
+
+  },
+
   {
     sequelize,
     timestamps: false,
