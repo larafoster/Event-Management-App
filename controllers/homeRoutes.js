@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Event, User } = require('../models');
 const withAuth = require('../utils/auth');
 
-router.get('./', async (req, res) => {
+router.get('/', async (req, res) => {
     try {
         //GET all Events and JOIN with user data
         const eventData = await Event.findAll({
@@ -25,7 +25,7 @@ router.get('./', async (req, res) => {
     }
 });
 
-router.get('./event/:id', async (req, res) => {
+router.get('/event/:id', async (req, res) => {
     try {
         const eventData = await Event.findByPK(req.params.id, {
             include: {
@@ -66,7 +66,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
 });
 
 
-router.get('./login', (req, res) => {
+router.get('/login', (req, res) => {
     if (req.session.logged_in) {
         res.redirect('./dashboard');
         return;
