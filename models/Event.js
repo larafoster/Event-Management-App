@@ -20,19 +20,19 @@ Event.init(
     },
 
     event_date: {
-      type: DataTypes.DATE,
+      type: DataTypes.STRING,
     },
     event_time: {
-      type: DataTypes.TIME,
+      type: DataTypes.STRING,
       allowNull: false,
 
     },
     category: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     covid_items: {
-      type: DataTypes.FLOAT,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     user_id: {
