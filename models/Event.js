@@ -18,15 +18,14 @@ Event.init(
     description: {
       type: DataTypes.STRING,
     },
+
+    event_date: {
+      type: DataTypes.DATE,
+    },
     event_time: {
       type: DataTypes.TIME,
       allowNull: false,
 
-    },
-    event_date: {
-      type: DataTypes.DATEONLY,
-      allowNull: false,
-      defaultValue: DataTypes.NOW,
     },
     covid_items: {
       type: DataTypes.FLOAT,
