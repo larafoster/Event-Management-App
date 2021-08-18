@@ -2,7 +2,7 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 var format = require('date-fns/format');
 
-class Event extends Model {}
+class Event extends Model {};
 
 Event.init(
   {
@@ -48,32 +48,16 @@ Event.init(
   { 
     hooks: {
       beforeCreate: async (timeData) => {
-        timeData.event_time = await timeData.event_time.format(date, [format= 'dddd-MMMM-Qo', [options]]);
+        timeData.event_time = await format(timeData.event_time, ['h-m']);
+        timeData.event_date = await format(timeData.event_date, ['dddd-MMMM-Qo']);
         return timeData;
       },
       beforeUpdate: async (updatedTimeData) => {
-        updatedTimeData.event_time = await updatedTimeData.event_time.format(date, [format= 'dddd-MMMM-Qo', [options]]);
+        updatedTimeData.event_time = await format(updatedTimeData.event_time, ['h-m']);
+        updatedTimeData.event_date = await format(updatedTimeData.event_date, ['dddd-MMMM-Qo']);
         return updatedTimeData;
       },
     },
-
-  },
-
-  { 
-    hooks: {
-      beforeCreate: async (dateData) => {
-        dateData.event_date = await dateData.event_date.format(date, [format= 'dddd-MMMM-Qo', [options]]);
-        return timeData;
-      },
-      beforeUpdate: async (updatedDateData) => {
-        updatedDateData.event_date = await updatedDateData.event_date.format(date, [format= 'dddd-MMMM-Qo', [options]]);
-        return updatedTimeData;
-      },
-    },
-
-  },
-
-  {
     sequelize,
     timestamps: false,
     freezeTableName: true,
