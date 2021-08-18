@@ -18,8 +18,13 @@ Event.init(
     description: {
       type: DataTypes.STRING,
     },
-    date_created: {
+    event_date: {
       type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
+    },
+    event_time: {
+      type: DataTypes.TIME,
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
