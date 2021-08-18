@@ -2,20 +2,113 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
   <title>JoinMe</title>
-  <link rel="stylesheet" href="/css/jass.css">
-  <link rel="stylesheet" href="/css/style.css">
+  <script src="https://kit.fontawesome.com/ef1290e982.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <!-- Favicon-->
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+
+  <link href="css/style.css" rel="stylesheet" />
 </head>
 
-<body>
-  
-      <!-- Render the sub layout -->
-      {{{ body }}}
-   
+<body class="d-flex flex-column h-100" id="top">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-4">
+    <div class="container">
+      <a class="navbar-brand" href="/"><i class="fas fa-users"></i> JoinMe</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
+          class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li>
+            <form class="date-search" id="find_event">
+              <div class="input-group">
+                <span class="input-group-text" id="basic-addon1"><i class="fas fa-search"></i></span>
+                <input type="date" class="form-control" aria-label="search" id="event_date">
+                <button class="btn btn-outline-secondary" type="submit" id="inputGroupFileAddon04">Find
+                  Event</button>
+              </div>
+            </form>
+          </li>
+          <!-- Conditionally render login or logout links -->
+          {{#if logged_in}}
+          <li><button href="/dashboard" type="button" class="btn btn-success"><i class="far fa-eye"></i> My
+              Events</button>
+          </li>
+          <button class="no-button" id="logout">logout</button>
+          {{else}}
+
+
+          <li>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary mx-3" data-bs-toggle="modal" data-bs-target="#loginModal">
+              Login
+            </button>
+
+          </li>
+          {{/if}}
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Modal -->
+  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">Login
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="login_form">
+            <div class="input-group">
+
+              <input type="email" placeholder="Enter Email" id="email-login" class="form-control">
+              <input type="password" placeholder="Enter Password" id="password-login" class="form-control">
+              <button class="btn btn-outline-secondary" type="submit" id="login_btn">Login</button>
+            </div>
+
+        </div>
+        <div class="modal-footer">
+          <a class="dropdown-item" href="/login">New around here? Sign up</a>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main class="container container-fluid mt-5">
+    <!-- Render the sub layout -->
+    {{{ body }}}
+  </main>
+  <footer class="footer mt-auto py-3 bg-light">
+    <div class="container">
+      <p class="float-end mb-1 totop">
+        <a href="#"><i class="fas fa-arrow-square-up fa-2x"></i> Back to top</a>
+      </p>
+      <p class="mb-0">View on <a href="https://github.com/larafoster/Event-Management-App" target="_blank">Github</a> --
+        JoinMe Team 2021</p>
+    </div>
+  </footer>
+
   <!-- Render script for logged in users only -->
-  
+  {{#if logged_in}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+    crossorigin="anonymous"></script>
 </body>
 
 </html>
