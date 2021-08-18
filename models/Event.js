@@ -1,5 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
+const date = require('date-fns');
 
 class Event extends Model {}
 

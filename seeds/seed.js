@@ -1,5 +1,6 @@
 const sequelize = require('../config/connection');
 const { User, Event } = require('../models');
+const date = require('date-fns');
 
 
 const userData = require('./userData.json');
