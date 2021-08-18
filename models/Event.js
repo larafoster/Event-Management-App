@@ -48,11 +48,25 @@ Event.init(
   { 
     hooks: {
       beforeCreate: async (timeData) => {
-        timeData.event_time = await date.format(date, [format= 'dddd-MMMM-Qo', [options]]);
+        timeData.event_time = await timeData.event_time.format(date, [format= 'dddd-MMMM-Qo', [options]]);
         return timeData;
       },
       beforeUpdate: async (updatedTimeData) => {
-        updatedTimeData.event_time = await date.format(date, [format= 'dddd-MMMM-Qo', [options]]);
+        updatedTimeData.event_time = await updatedTimeData.event_time.format(date, [format= 'dddd-MMMM-Qo', [options]]);
+        return updatedTimeData;
+      },
+    },
+
+  },
+
+  { 
+    hooks: {
+      beforeCreate: async (dateData) => {
+        dateData.event_date = await dateData.event_date.format(date, [format= 'dddd-MMMM-Qo', [options]]);
+        return timeData;
+      },
+      beforeUpdate: async (updatedDateData) => {
+        updatedDateData.event_date = await updatedDateData.event_date.format(date, [format= 'dddd-MMMM-Qo', [options]]);
         return updatedTimeData;
       },
     },
