@@ -45,7 +45,7 @@
           <li><button href="/dashboard" type="button" class="btn btn-success"><i class="far fa-eye"></i> My
               Events</button>
           </li>
-          <button class="no-button" id="logout">logout</button>
+          <button class="btn btn-danger" id="logout">logout</button>
           {{else}}
 
 
@@ -69,10 +69,10 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form id="login_form">
+          <form id="login-form">
             <div class="input-group">
 
-              <input type="email" placeholder="Enter Email" id="email-login" class="form-control">
+              <input type="text" placeholder="Enter Username" id="username-login" class="form-control">
               <input type="password" placeholder="Enter Password" id="password-login" class="form-control">
               <button class="btn btn-outline-secondary" type="submit" id="login_btn">Login</button>
             </div>
@@ -85,7 +85,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> 
 
   <main>
     <!-- Render the sub layout -->
