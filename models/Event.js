@@ -5,8 +5,8 @@ var format = require('date-fns/format');
 const event_dates = ["2021 6 12", "2021 11 14", "2021 7 4"];
 
 
-=======
-/* var format = require('date-fns/format'); 
+
+ var format = require('date-fns/format'); 
 
 class Event extends Model {};
 
