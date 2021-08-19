@@ -25,6 +25,33 @@ router.get('/', async (req, res) => {
     }
 });
 
+// get single event
+router.get('/event/:id', async (req, res) => {
+  try {
+    const eventData = await Event.findByPk(req.params.id, {
+            include: [
+                {
+                    model: User,
+                    attributes: ['username']
+                },
+            ],
+    });
+
+    if (eventData) {
+      const event = eventData.get({ plain: true });
+
+      res.render('single-event', { event });
+    } else {
+      res.status(404).end();
+    }
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
+
+/* 
 router.get('/event/:id', async (req, res) => {
     try {
         const eventData = await Event.findByPK(req.params.id, {
@@ -44,8 +71,8 @@ router.get('/event/:id', async (req, res) => {
         res.status(500).json(err);
     }
 });
-
-
+ */
+/* 
 router.get('/dashboard', withAuth, async (req, res) => {
     try{
     
@@ -73,5 +100,24 @@ router.get('/login', (req, res) => {
     }
 
     res.render('login');
+}); */
+
+router.get('/login', (req, res) => {
+  if (req.session.logged_in) {
+    res.redirect('/');
+    return;
+  }
+
+  res.render('login');
 });
+
+router.get('/signup', (req, res) => {
+  if (req.session.logged_in) {
+    res.redirect('/');
+    return;
+  }
+
+  res.render('signup');
+});
+
 module.exports = router;

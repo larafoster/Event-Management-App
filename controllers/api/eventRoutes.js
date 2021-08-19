@@ -12,5 +12,4 @@ router.get('/', async (req, res) => {
     res.render('all', { events });
 });
 
-
 module.exports = router;
