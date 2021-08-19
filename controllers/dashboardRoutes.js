@@ -6,13 +6,13 @@ router.get('/', withAuth, async (req, res) => {
   try {
     const eventData = await Event.findAll({
       where: {
-        userId: req.session.userId,
+        user_id: req.session.userId,
       },
     });
 
     const events = eventData.map((event) => event.get({ plain: true }));
 
-    res.render('user-events', {
+    res.render('dashboard', {
       layout: 'dashboard',
       events,
     });
@@ -22,9 +22,7 @@ router.get('/', withAuth, async (req, res) => {
 });
 
 router.get('/new', withAuth, (req, res) => {
-  res.render('new-event', {
-    layout: 'dashboard',
-  });
+  res.render('new-event', { 'dashboard' });
 });
 
 router.get('/edit/:id', withAuth, async (req, res) => {

@@ -1,19 +1,11 @@
 const router = require('express').Router();
 const { Event } = require('../../models');
-const withAuth = require('../../utils/auth');
-
-router.get('/', withAuth, async (req, res) => {
-    const eventData = await Event.findAll().catch((err) => {
-        res.json(err);
-    });
-
-    const events = eventData.map((event) => event.get({ plain: true }));
-
-    res.render('all', { events });
-});
+//const withAuth = require('../../utils/auth');
 
 
-router.post('/', withAuth, async (req, res) => {
+
+
+router.post('/', async (req, res) => {
     try {
         const newEvent = await Event.create({
             ...req.body,
@@ -49,7 +41,7 @@ router.put('/:id', async (req, res) => {
     }
 });
 
-router.delete('/:id', withAuth, async (req, res) =>{
+router.delete('/:id', async (req, res) =>{
     try {
         const eventData = await Event.destroy({
             where: {

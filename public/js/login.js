@@ -14,6 +14,7 @@ const loginFormHandler = async (event) => {
     });
 
     if (response.ok) {
+      console.log(response);
       // If successful, redirect the browser to the dashboard page
       document.location.replace('/dashboard');
     } else {
@@ -47,6 +48,6 @@ document
   .querySelector('#login-form')
   .addEventListener('submit', loginFormHandler);
 
-document
-  .querySelector('#signup-form')
-  .addEventListener('submit', signupFormHandler);
+//document
+  //.querySelector('#signup-form')
+  //.addEventListener('submit', signupFormHandler);
