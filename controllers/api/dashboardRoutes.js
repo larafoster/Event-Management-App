@@ -9,7 +9,7 @@ router.get('/', withAuth, async (req, res) => {
 
     const events = eventData.map((event) => event.get({ plain: true }));
 
-    res.render('all', { events });
+    res.render('dashboard', { events });
 });
 
 
