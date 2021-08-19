@@ -25,7 +25,53 @@ router.get('/', async (req, res) => {
     }
 });
 
+// get single event
 router.get('/event/:id', async (req, res) => {
+  try {
+    const eventData = await Event.findByPk(req.params.id, {
+            include: [
+                {
+                    model: User,
+                    attributes: ['username']
+                },
+            ],
+    });
+
+    if (eventData) {
+      const event = eventData.get({ plain: true });
+
+      res.render('single-event', { event });
+    } else {
+      res.status(404).end();
+    }
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/dashboard', withAuth, async (req, res) => {
+    try {
+      const eventData = await Event.findAll({
+        where: {
+          user_id: req.session.user_id,
+        },
+      });
+  
+      const events = eventData.map((event) => event.get({ plain: true }));
+  
+      res.render('dashboard', {
+        events,
+      });
+    } catch (err) {
+      res.redirect('login');
+    }
+  });
+  
+
+
+
+
+router.get('/dashboard/:id', async (req, res) => {
     try {
         const eventData = await Event.findByPK(req.params.id, {
             include: {
@@ -44,9 +90,9 @@ router.get('/event/:id', async (req, res) => {
         res.status(500).json(err);
     }
 });
+ 
 
-
-router.get('/dashboard', withAuth, async (req, res) => {
+/*router.get('/dashboard', async (req, res) => {
     try{
     
      const userData = await User.findByPK(req.session.user_id, {
@@ -63,15 +109,34 @@ router.get('/dashboard', withAuth, async (req, res) => {
     } catch (err) {
         res.status(500).json(err);
     }
-});
+});*/
 
 
-router.get('/login', (req, res) => {
+/*router.get('/login', (req, res) => {
     if (req.session.logged_in) {
         res.redirect('./dashboard');
         return;
     }
 
     res.render('login');
+}); */
+
+router.get('/login', (req, res) => {
+  if (req.session.logged_in) {
+    res.redirect('/');
+    return;
+  }
+
+  res.render('login');
 });
+
+router.get('/signup', (req, res) => {
+  if (req.session.logged_in) {
+    res.redirect('/');
+    return;
+  }
+
+  res.render('signup');
+});
+
 module.exports = router;
