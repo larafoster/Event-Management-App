@@ -1,4 +1,4 @@
-const router = require('express').Router();
+/*const router = require('express').Router();
 const { Event } = require('../../models');
 //const withAuth = require('../../utils/auth');
 
@@ -12,4 +12,4 @@ router.get('/', async (req, res) => {
     res.render('all', { events });
 });
 
-module.exports = router;
+module.exports = router;*/

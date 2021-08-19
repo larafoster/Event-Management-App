@@ -51,9 +51,9 @@
 
           <li>
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary mx-3" data-bs-toggle="modal" data-bs-target="#loginModal">
+            <a href='/login' type="button" class="btn btn-primary mx-3">
               Login
-            </button>
+            </a>
 
           </li>
           {{/if}}
@@ -62,30 +62,8 @@
     </div>
   </nav>
   <!-- Modal -->
-  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">Login
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form id="login-form">
-            <div class="input-group">
+ 
 
-              <input type="text" placeholder="Enter Username" id="username-login" class="form-control">
-              <input type="password" placeholder="Enter Password" id="password-login" class="form-control">
-              <button class="btn btn-outline-secondary" type="submit" id="login_btn">Login</button>
-            </div>
-
-        </div>
-        <div class="modal-footer">
-          <a class="dropdown-item" href="/login">New around here? Sign up</a>
-
-          </form>
-        </div>
-      </div>
-    </div>
-  </div> 
 
   <main>
     <!-- Render the sub layout -->
@@ -105,7 +83,7 @@
   {{#if logged_in}}
   <script src="/js/logout.js"></script>
   {{/if}}
-  <script src="/js/login.js"></script>
+
 
   <!-- JavaScript Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
