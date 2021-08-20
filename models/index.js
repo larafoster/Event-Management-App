@@ -24,7 +24,7 @@ Event.belongsTo(User, {
 
 
 Join.belongsTo(Event, {
-  through: 'user_username',
+  foreignKey: 'username',
   onDelete: 'CASCADE'
 });
 
