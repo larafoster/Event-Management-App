@@ -8,6 +8,8 @@ router.post('/', withAuth, async (req, res) => {
       ...req.body,
       user_id: req.session.user_id,
     });
+    res.status(200).json(eventData);
+    // const events = eventData.map((event) => event.get({ plain: true }));
 
     res.status(200).json(newEvent);
   } catch (err) {
