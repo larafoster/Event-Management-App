@@ -1,8 +1,8 @@
 const router = require('express').Router();
 const { Event } = require('../models/');
-const withAuth = require('../utils/auth');
+//const withAuth = require('../utils/auth');
 
-router.get('/', withAuth, async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const eventData = await Event.findAll({
       where: {
@@ -12,7 +12,7 @@ router.get('/', withAuth, async (req, res) => {
 
     const events = eventData.map((event) => event.get({ plain: true }));
 
-    res.render('user-events', {
+    res.render('dashboard', {
       layout: 'dashboard',
       events,
     });
@@ -21,20 +21,20 @@ router.get('/', withAuth, async (req, res) => {
   }
 });
 
-router.get('/new', withAuth, (req, res) => {
-  res.render('new-event', {
+router.get('/new', (req, res) => {
+  res.render('dashboard', {
     layout: 'dashboard',
   });
 });
 
-router.get('/edit/:id', withAuth, async (req, res) => {
+router.get('/edit/:id', async (req, res) => {
   try {
     const eventData = await Event.findByPk(req.params.id);
 
     if (eventData) {
       const event = eventData.get({ plain: true });
 
-      res.render('edit-event', {
+      res.render('dashboard', {
         layout: 'dashboard',
         event,
       });

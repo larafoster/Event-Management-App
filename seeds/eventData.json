@@ -4,48 +4,25 @@
       "category": "Food",
       "description": "a market from the farm",
       "event_time": "9:00",
-<<<<<<< HEAD
-      "event_date": "June",
-=======
       "event_date": "06/01/2021",
-<<<<<<< HEAD
->>>>>>> 1c1da72fc095db42a17cf9e06da9a1d613fdd2be
-      "covid_items": "mask optional"
-=======
       "covid_items": "Mask Optional"
->>>>>>> e2c97daddaa7234b1c1b661f2e17725489e22c62
     },
     {
       "name": "Fireworks",
       "category": "Family Fun",
       "description": "sparks",
       "event_time": "9:00",
-<<<<<<< HEAD
-      "event_date": "July",
-=======
       "event_date": "06/01/2021",
-<<<<<<< HEAD
->>>>>>> 1c1da72fc095db42a17cf9e06da9a1d613fdd2be
-      "covid_items": "mask optional"
-=======
       "covid_items": "Mask Optional"
->>>>>>> e2c97daddaa7234b1c1b661f2e17725489e22c62
     },
     {
       "name": "Goat Farm",
       "category": "Animals",
       "description": "a farm with goats",
       "event_time": "9:00",
-<<<<<<< HEAD
-      "event_date": "July",
-=======
       "event_date": "06/01/2021",
-<<<<<<< HEAD
->>>>>>> 1c1da72fc095db42a17cf9e06da9a1d613fdd2be
-      "covid_items": "mask needed"
-=======
       "covid_items": "Mask Required"
->>>>>>> e2c97daddaa7234b1c1b661f2e17725489e22c62
+
 
     },
     {

@@ -6,10 +6,10 @@ router.get('/', async (req, res) => {
     const eventData = await Event.findAll().catch((err) => {
         res.json(err);
     });
+    res.status(200).json(eventData);
+    // const events = eventData.map((event) => event.get({ plain: true }));
 
-    const events = eventData.map((event) => event.get({ plain: true }));
-
-    res.render('all', { events });
+    // res.render(`name`, { events });
 });
 
 module.exports = router;
