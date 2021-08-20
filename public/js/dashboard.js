@@ -37,7 +37,7 @@ const delButtonHandler = async (event) => {
   }
 };
 const deleteClickHandler = async function() {
-  await fetch(`/api/event/${postId}`, {
+  await fetch(`/api/event/${Id}`, {
     method: 'DELETE'
   });
 
