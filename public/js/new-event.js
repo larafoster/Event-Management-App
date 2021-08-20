@@ -2,12 +2,16 @@ const newFormHandler = async (event) => {
   event.preventDefault();
 
   const name = document.querySelector('#event-name').value.trim();
-  const description = document.querySelector('#event-desc').value.trim();
+  const category = document.querySelector('#category').value.trim();
+  const description = document.querySelector('#description').value.trim();
+  const event_date = document.querySelector('#event-date').value.trim();
+  const event_time = document.querySelector('#event_time').value.trim();
+  const covid_items = document.querySelector('#covid_items').value.trim();
 
-  if (name && description) {
+  if (name && category && description && event_date && event_time && covid_items) {
     const response = await fetch(`/api/events`, {
       method: 'POST',
-      body: JSON.stringify({ name, description }),
+      body: JSON.stringify({ name, category, description, event_date, event_time, covid_items  }),
       headers: {
         'Content-Type': 'application/json',
       },
@@ -41,6 +45,6 @@ document
   .querySelector('#new-event-form')
   .addEventListener('submit', newFormHandler);
 
-document
-  .querySelector('#event-list')
-  .addEventListener('click', delButtonHandler);
+// document
+//   .querySelector('#event-list')
+//   .addEventListener('click', delButtonHandler);

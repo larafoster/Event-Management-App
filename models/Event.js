@@ -4,12 +4,7 @@ const sequelize = require ('../config/connection');
 
 
 
-<<<<<<< HEAD
-
- var format = require('date-fns/format'); 
-=======
 const event_dates = ["6, 12", "7, 4", "8, 21", "9, 13", "9, 25"];
->>>>>>> 052588ed374b36097a48a7baa70bed4c3eb2057f
 
 var format = require('date-fns/format');
 class Event extends Model {};

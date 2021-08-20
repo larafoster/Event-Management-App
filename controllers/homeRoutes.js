@@ -25,29 +25,6 @@ router.get ('/', async (req, res) => {
   }
 });
 
-// get single event
-router.get ('/event/:id', async (req, res) => {
-  try {
-    const eventData = await Event.findByPk (req.params.id, {
-      include: [
-        {
-          model: User,
-          attributes: ['username'],
-        },
-      ],
-    });
-
-    if (eventData) {
-      const event = eventData.get ({plain: true});
-
-      res.render ('single-event', {event});
-    } else {
-      res.status (404).end ();
-    }
-  } catch (err) {
-    res.status (500).json (err);
-  }
-});
 
 // Use withAuth middleware to prevent access to route
 router.get('/dashboard', withAuth, async (req, res) => {
@@ -79,13 +56,13 @@ router.get ('/login', (req, res) => {
   res.render ('login');
 });
 
-/*router.get('/signup', (req, res) => {
+router.get('/signup', (req, res) => {
   if (req.session.logged_in) {
     res.redirect ('/dashboard');
     return;
   }
 
   res.render('signup');
-});*/
+});
 
 module.exports = router;
