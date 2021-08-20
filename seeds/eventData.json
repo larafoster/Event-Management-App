@@ -6,7 +6,7 @@
       "event_time": "9:00",
 
       "event_date": "(2021, 6, 12)",
-      "covid-items": "mask optional"
+      "covid_items": "mask optional"
 
     },
     {
@@ -16,7 +16,7 @@
       "event_time": "9:00",
 
       "event_date": "(2021, 7, 4)",
-      "covid-items": "mask optional"
+      "covid_items": "mask optional"
 
     },
     {
@@ -26,7 +26,8 @@
       "event_time": "9:00",
 
       "event_date": "(2021, 8, 21)",
-      "covid-items": "mask needed"
+      "covid_items": "mask needed"
+
 
 
     },
@@ -37,7 +38,7 @@
       "event_time": "9:00",
       "event_date": "(2021, 9, 13)",
 
-      "covid-items": "mask optional"
+      "covid_items": "mask optional"
 
 
     },
@@ -48,7 +49,7 @@
       "event_time": "9:00",
       "event_date": "(2021, 9, 25)",
 
-      "covid-items": "mask required"
+      "covid_items": "mask required"
 
 
     }
