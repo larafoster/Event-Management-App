@@ -11,22 +11,22 @@ User.hasMany(Event, {
 User.hasMany(Comment, { 
   foreignKey: 'user_id',
   onDelete: 'CASCADE'
-})
+});
+
+Comment.belongsTo(User, { 
+  foreignKey: 'user_id',
+  onDelete: 'CASCADE'
+});
 
 Event.belongsTo(User, {
   foreignKey: 'user_id'
 });
 
 
-
-/* Comment.belongsTo(User, {
-  foreignKey: 'user_Id',
+Join.belongsTo(Event, {
+  through: 'user_username',
   onDelete: 'CASCADE'
-}); */
-
-/* add Join --- 
-Join.belongsTo(Event, { through: 'user', /* options  });
-*/
+});
 
 
 module.exports = { User, Event };

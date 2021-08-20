@@ -1,22 +1,26 @@
-/* const { Model, DataTypes } = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Join extends Model {}
+class Join extends Model {};
 
 Join.init(
   {
-username: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      references: {
-        model: 'user', //not sure if it should reference event with key: user_id 
+    username: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        references: {
+        model: 'user', 
         key: 'username' //to join they enter their username and the event is added to their joined events 
       },
     },
   },
   {
-    sequelize
+    sequelize,
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'join',
   }
 );
 
-module.exports = Join; */
+module.exports = Join;
