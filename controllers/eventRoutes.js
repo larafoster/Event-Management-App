@@ -3,7 +3,8 @@ const { Event, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 // new event form
-router.get('/new-event', withAuth, (req, res) => {
+router.get('/new-event', (req, res) => {
+  console.log(req.session)
   res.render('new-event', {
   
   });

@@ -7,10 +7,10 @@ Comment.init(
   {
     comment_details: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
       references: {
           model: 'user',
-          key: 'id',
+          key: 'username',
       },
     },
   },
@@ -23,5 +23,5 @@ Comment.init(
   }
 );
 
-module.exports = Comment;
+//module.exports = Comment;
  
