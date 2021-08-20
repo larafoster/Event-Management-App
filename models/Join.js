@@ -10,7 +10,7 @@ username: {
       allowNull: false,
       references: {
         model: 'user', //not sure if it should reference event with key: user_id 
-        key: 'username', //to join they enter their username and the event is added to their joined events 
+        key: 'username' //to join they enter their username and the event is added to their joined events 
       },
     },
   },
