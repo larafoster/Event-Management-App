@@ -1,8 +1,8 @@
 const newFormHandler = async (event) => {
   event.preventDefault();
 
-  const name = document.querySelector('#event-name').value.trim();
-  const description = document.querySelector('#event-desc').value.trim();
+  const name = document.querySelector('#name').value.trim();
+  const description = document.querySelector('#description').value.trim();
 
   if (name && description) {
     const response = await fetch(`/api/events`, {

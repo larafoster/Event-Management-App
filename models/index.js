@@ -14,7 +14,7 @@ User.hasMany(Event, {
 // });
 
 // Comment.belongsTo(User, { 
-//   foreignKey: 'user_id',
+//   foreignKey: 'user_username',
 //   onDelete: 'CASCADE'
 // });
 
@@ -24,7 +24,7 @@ Event.belongsTo(User, {
 
 
 // Join.belongsTo(Event, {
-//   foreignKey: 'username',
+//   foreignKey: 'user_username',
 //   onDelete: 'CASCADE'
 // });
 

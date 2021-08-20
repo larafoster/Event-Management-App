@@ -4,6 +4,7 @@ const withAuth = require('../utils/auth');
 
 // new event form
 router.get('/new-event', withAuth, (req, res) => {
+  console.log(req.session)
   res.render('new-event', {
   
   });
