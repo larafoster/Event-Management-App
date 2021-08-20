@@ -1,4 +1,45 @@
+<section class="py-5 text-center container-fluid bg-light">
+  <div class="row py-lg-2">
+    <div class="col-lg-6 col-md-8 mx-auto">
+      <h1 class="fw-light">Welcome to your JoinMe Event Page</h1>
+      <h3>Your are logged in as: {{username}}</h3>
+      <p class="lead text-muted">
+        Here you can see the EVENTS you have created as well as the EVENTS you are planning to attend.
+      </p>
+      <p>
+        <a href="/new-event" class="btn btn-success my-2">Create a New Event</a>
+      </p>
+    </div>
+  </div>
+</section>
 
-some content
+<main>
+  <div class="container d-flex justify-content-around">
+    <div class="col-md-5 my-3">
+      {{#if events.length}}
+      <h3>Manage your events:</h3>
 
-{{!-- <script src="/js/dashboard.js"></script> --}}
+      {{#each events as |event|}}
+      <div class="callout callout-primary">
+        <h4><a href="/event/{{event.id}}">{{event.name}}</a></h4>
+        <p>{{event.event_date}}</p>
+        <p>{{event.description}}</p>
+
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+  <button href="/edit-event" class="btn btn-warning me-md-2" type="button">Edit</button>
+  <button class="btn btn-danger" data-id="{{event.id}}" type="button">Delete</button>
+</div>      </div>
+ {{/each}}
+    </div>
+ {{/if}}
+    <div class="col-md-5 my-3">
+     <h3>Events you have Joined:</h3>
+       <div class="callout callout-primary">
+            
+
+       <h4>Here is the list of Events you are planning to attend.</h4>
+</div>
+ </div>
+</main>
+
+<script src="./js/dashboard.js"></script>
