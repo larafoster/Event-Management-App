@@ -1,13 +1,17 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
-
-var format = require('date-fns/format');
-const event_dates = ["2021 6 12", "2021 11 14", "2021 7 4"];
+const {Model, DataTypes} = require ('sequelize');
+const sequelize = require ('../config/connection');
 
 
+
+
+<<<<<<< HEAD
 
  var format = require('date-fns/format'); 
+=======
+const event_dates = ["6, 12", "7, 4", "8, 21", "9, 13", "9, 25"];
+>>>>>>> 052588ed374b36097a48a7baa70bed4c3eb2057f
 
+var format = require('date-fns/format');
 class Event extends Model {};
 
 Event.init(
@@ -23,8 +27,8 @@ Event.init(
       allowNull: false,
     },
     category: {
-    type: DataTypes.STRING,
-    allowNull: true,
+      type: DataTypes.STRING,
+      allowNull: true,
     },
     description: {
       type: DataTypes.STRING,
@@ -49,25 +53,24 @@ Event.init(
       },
     },
   },
-
   { 
      hooks: {
       beforeCreate: async (timeData) => {
 
         for(let i = 0; i < event_dates.length; i++) {
         
-        timeData.event_date = await format(new Date(event_dates[i]), "dddd-MMMM-Qo");
-        return timeData;
+        timeData.event_date = await format(new Date(event_dates[i]), "MMMM-Qo");
         };
+        console.log(timeData.event_date);
+        return timeData;
       },
 
       beforeUpdate: async (updatedTimeData) => {
-        updatedTimeData.event_date = await format(new Date(), "dddd-MMMM-Qo");
+
+        updatedTimeData.event_date = await format(new Date(), "MMMM-Qo");
         return updatedTimeData;
       },
     },
-
-
 
     sequelize,
     timestamps: false,
@@ -78,5 +81,3 @@ Event.init(
 );
 
 module.exports = Event;
-
-
