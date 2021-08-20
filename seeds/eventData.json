@@ -4,24 +4,30 @@
       "category": "Food",
       "description": "a market from the farm",
       "event_time": "9:00",
-      "event_date": "06/01/2021",
-      "covid_items": "Mask Optional"
+
+      "event_date": "(2021, 6, 12)",
+      "covid-items": "mask optional"
+
     },
     {
       "name": "Fireworks",
       "category": "Family Fun",
       "description": "sparks",
       "event_time": "9:00",
-      "event_date": "06/01/2021",
-      "covid_items": "Mask Optional"
+
+      "event_date": "(2021, 7, 4)",
+      "covid-items": "mask optional"
+
     },
     {
       "name": "Goat Farm",
       "category": "Animals",
       "description": "a farm with goats",
       "event_time": "9:00",
-      "event_date": "06/01/2021",
-      "covid_items": "Mask Required"
+
+      "event_date": "(2021, 8, 21)",
+      "covid-items": "mask needed"
+
 
 
     },
@@ -30,8 +36,10 @@
        "category": "Family Fun",
       "description": "many pumpkins",
       "event_time": "9:00",
-      "event_date": "September",
-      "covid_items": "Mask Optional"
+      "event_date": "(2021, 9, 13)",
+
+      "covid-items": "mask optional"
+
 
     },
     {
@@ -39,8 +47,10 @@
       "category": "Food",
       "description": "gouda",
       "event_time": "9:00",
-      "event_date": "June",
-      "covid_items": "Proof of Vaccine"
+      "event_date": "(2021, 9, 25)",
+
+      "covid-items": "mask required"
+
 
     }
   ]

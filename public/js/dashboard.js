@@ -36,11 +36,25 @@ const delButtonHandler = async (event) => {
     }
   }
 };
+const deleteClickHandler = async function() {
+  await fetch(`/api/event/${postId}`, {
+    method: 'DELETE'
+  });
 
+  document.location.replace('/dashboard');
+};
 document
-  .querySelector('.new-event-form')
+  .querySelector('#edit-event-form')
   .addEventListener('submit', newFormHandler);
 
 document
-  .querySelector('.event-list')
+  .querySelector('#new-event-form')
+  .addEventListener('submit', newFormHandler);
+
+document
+  .querySelector('#event-list')
   .addEventListener('click', delButtonHandler);
+
+  document
+  .querySelector('#delete-btn')
+  .addEventListener('click', deleteClickHandler);
