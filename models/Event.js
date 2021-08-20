@@ -1,8 +1,9 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+const {Model, DataTypes} = require ('sequelize');
+const sequelize = require ('../config/connection');
+
+
 
 var format = require('date-fns/format');
-
 const event_dates = ["2021, 6, 12", "2021, 7, 4", "2021, 8, 21", "2021, 9, 13", "2021, 9, 25"];
 class Event extends Model {};
 
@@ -19,8 +20,8 @@ Event.init(
       allowNull: false,
     },
     category: {
-    type: DataTypes.STRING,
-    allowNull: true,
+      type: DataTypes.STRING,
+      allowNull: true,
     },
     description: {
       type: DataTypes.STRING,
@@ -45,7 +46,6 @@ Event.init(
       },
     },
   },
-
   { 
      hooks: {
       beforeCreate: async (timeData) => {
@@ -65,8 +65,6 @@ Event.init(
       },
     },
 
-
-
     sequelize,
     timestamps: false,
     freezeTableName: true,
@@ -76,5 +74,3 @@ Event.init(
 );
 
 module.exports = Event;
-
-
