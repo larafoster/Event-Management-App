@@ -11,9 +11,6 @@ router.post('/', withAuth, async (req, res) => {
     res.status(200).json(eventData);
     // const events = eventData.map((event) => event.get({ plain: true }));
 
-<<<<<<< HEAD
-    // res.render(`name`, { events });
-=======
     res.status(200).json(newEvent);
   } catch (err) {
     res.status(400).json(err);
@@ -38,7 +35,6 @@ router.delete('/:id', withAuth, async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
->>>>>>> 208f596db1d017eeb45a13ae700f9705ee58ce93
 });
 
 module.exports = router;

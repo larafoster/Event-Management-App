@@ -1,24 +1,19 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
+router.post('/', async (req, res) => {
+  try {
+    const userData = await User.create(req.body);
+    req.session.save(() => {
+      req.session.user_id = userData.id;
+      req.session.logged_in = true;
+      res.status(200).json(userData);
+    });
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
 
-<<<<<<< HEAD
-// router.post('/', async (req, res) => {
-//     try{
-        
-//        const userData = await User.create(req.body);
-
-//        req.session.save(() => {
-//            req.session.user_id = userData.user_id;
-//            req.session.logged_in = true;
-
-//            res.Status(200).json(userData);
-//         });
-//     } catch (err) {
-//         res.status(400).json(err);
-//     }
-// });
-=======
 router.post('/login', async (req, res) => {
   try {
     // Find the user who matches the posted e-mail address
@@ -30,7 +25,6 @@ router.post('/login', async (req, res) => {
         .json({ message: 'Incorrect username or password, please try again' });
       return;
     }
->>>>>>> 208f596db1d017eeb45a13ae700f9705ee58ce93
 
     // Verify the posted password with the password store in the database
     const validPassword = await userData.checkPassword(req.body.password);
