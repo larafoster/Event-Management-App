@@ -17,23 +17,6 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
-/* router.put('/:id', withAuth, async (req, res) => {
-  try {
-    const [affectedRows] = await Event.update(req.body, {
-      where: {
-        id: req.params.id,
-      },
-    });
-
-    if (affectedRows > 0) {
-      res.status(200).end();
-    } else {
-      res.status(404).end();
-    }
-  } catch (err) {
-    res.status(500).json(err);
-  }
-}); */
 router.put('/:id', async (req, res) => {
   try {
     const eventUpdate = await Event.update(
@@ -59,20 +42,23 @@ router.put('/:id', async (req, res) => {
 
 router.delete('/:id', withAuth, async (req, res) => {
   try {
-    const [affectedRows] = Event.destroy({
+    const eventDelete = await Event.destroy({
       where: {
         id: req.params.id,
+        user_id: req.session.user_id,
       },
     });
 
-    if (affectedRows > 0) {
-      res.status(200).end();
-    } else {
-      res.status(404).end();
+    if (!eventDelete) {
+      res.status(404).json({ message: 'No Event found with this id!' });
+      return;
     }
+
+    res.status(200).json(eventDelete);
   } catch (err) {
     res.status(500).json(err);
   }
 });
+
 
 module.exports = router;
