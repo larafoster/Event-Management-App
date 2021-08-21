@@ -17,21 +17,37 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
-router.delete('/:id', withAuth, async (req, res) => {
+router.put('/:id', withAuth, async (req, res) => {
   try {
-    const eventData = await Event.destroy({
+    const [affectedRows] = await Event.update(req.body, {
       where: {
         id: req.params.id,
-        user_id: req.session.user_id,
       },
     });
 
-    if (!eventData) {
-      res.status(404).json({ message: 'No event found with this id!' });
-      return;
+    if (affectedRows > 0) {
+      res.status(200).end();
+    } else {
+      res.status(404).end();
     }
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
-    res.status(200).json(eventData);
+router.delete('/:id', withAuth, async (req, res) => {
+  try {
+    const [affectedRows] = Event.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+
+    if (affectedRows > 0) {
+      res.status(200).end();
+    } else {
+      res.status(404).end();
+    }
   } catch (err) {
     res.status(500).json(err);
   }

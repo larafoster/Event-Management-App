@@ -35,17 +35,14 @@ router.get('/:id', async (req, res) => {
 });
 
 // edit event view
-router.get('/:id/edit', withAuth, async (req, res) => {
+router.get('/:id/edit-event/', withAuth, async (req, res) => {
   try {
-    const eventData = await Event.findByPk(req.params.id);
-    
-    if (eventData) {
-      const event = eventData.get({ plain: true });
-      
-      res.render('edit-event', {
-        layout: 'dashboard',
-        event,
-      });
+    const eventDataEdit = await Event.findByPk(req.params.id);
+
+    if (eventDataEdit) {
+      const event = eventDataEdit.get({ plain: true });
+
+      res.render('edit-event', { event });
     } else {
       res.status(404).end();
     }
