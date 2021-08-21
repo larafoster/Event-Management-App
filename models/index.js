@@ -1,8 +1,7 @@
 const User = require('./User');
 const Event = require('./Event');
 const Comment = require('./Comment');
-const EventCreator = require('./EventCreator')
-//const Join = require('./Join');
+const Join = require('./Join');
 
 User.belongsToMany(Event, {
   through: {
@@ -21,14 +20,8 @@ Event.belongsToMany(User, {
 });
 
 Event.hasMany(Comment, {
-    foreignKey: 'user_id',
+  foreignKey: 'user_id',
   },
 );
 
-Event.hasOne(EventCreator, {
-  foreignKey: 'user_id',
-},
-);
-
-
-module.exports = { User, Event, Comment, EventCreator };
+module.exports = { User, Event, Comment, Join };

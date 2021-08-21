@@ -10,7 +10,7 @@ Join.init(
         allowNull: false,
         references: {
         model: 'user', 
-        key: 'username' //to join they enter their username and the event is added to their joined events 
+        key: 'id' //to join they enter their username and the event is added to their joined events 
       },
     },
   },
