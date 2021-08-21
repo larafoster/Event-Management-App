@@ -23,7 +23,7 @@
       <div class="callout callout-primary">
         <h4><a href="/event/{{event.id}}">{{event.name}}</a></h4>
         <div class="row">
-        <div class="col-7 d-flex justify-content-start"> {{event.event_date}} | {{event.event_time}} </div>
+        <div class="col-7 d-flex justify-content-start"> {{format_date event.event_date}} | {{event.event_time}} </div>
         <div class="col-5 d-flex justify-content-end">Category:  {{event.category}}</div>
       </div>
         <div class="row">
