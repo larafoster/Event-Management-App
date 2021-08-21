@@ -1,12 +1,8 @@
 const {Model, DataTypes} = require ('sequelize');
 const sequelize = require ('../config/connection');
+class Event extends Model {}
 
-const event_dates = ["6, 12", "7, 4", "8, 21", "9, 13", "9, 25"];
-
-var format = require('date-fns/format');
-class Event extends Model {};
-
-Event.init(
+Event.init (
   {
     id: {
       type: DataTypes.INTEGER,
@@ -20,22 +16,24 @@ Event.init(
     },
     category: {
       type: DataTypes.STRING,
-      allowNull: true,
+      allowNull: false,
     },
     description: {
       type: DataTypes.STRING,
+      allowNull: false,
     },
 
     event_date: {
-      type: DataTypes.STRING,
+      type: DataTypes.DATE,
+      allowNull: false,
     },
     event_time: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     covid_items: {
       type: DataTypes.STRING,
-      allowNull: true,
+      allowNull: false,
     },
     user_id: {
       type: DataTypes.INTEGER,
@@ -45,24 +43,7 @@ Event.init(
       },
     },
   },
-  { 
-     hooks: {
-      beforeCreate: async (timeData) => {
-
-        for(let i = 0; i < event_dates.length; i++) {
-        
-        timeData.event_date = await format(new Date(event_dates[i]), "MMMM-Qo");
-        };
-        console.log(timeData.event_date);
-        return timeData;
-      },
-
-      beforeUpdate: async (updatedTimeData) => {
-
-        updatedTimeData.event_date = await format(new Date(), "MMMM-Qo");
-        return updatedTimeData;
-      },
-    },
+  {
 
     sequelize,
     timestamps: false,
