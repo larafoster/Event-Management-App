@@ -1,11 +1,11 @@
-const router = require ('express').Router ();
-const {Event, User} = require ('../models');
-const withAuth = require ('../utils/auth');
+const router = require('express').Router();
+const { Event, User } = require('../models');
+const withAuth = require('../utils/auth');
 
-router.get ('/', async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     //GET all Events and JOIN with user data
-    const eventData = await Event.findAll ({
+    const eventData = await Event.findAll({
       include: [
         {
           model: User,
@@ -14,18 +14,17 @@ router.get ('/', async (req, res) => {
       ],
     });
     //serialize data so the template can read it
-    const events = eventData.map (Event => Event.get ({plain: true}));
+    const events = eventData.map((Event) => Event.get({ plain: true }));
 
     //Pass serialized data
-    res.render ('homepage', {
+    res.render('homepage', /* req.session.username, */{
       events,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
-    res.status (500).json (err);
+    res.status(500).json(err);
   }
 });
-
 
 // Use withAuth middleware to prevent access to route
 router.get('/dashboard', withAuth, async (req, res) => {
@@ -40,26 +39,25 @@ router.get('/dashboard', withAuth, async (req, res) => {
 
     res.render('dashboard', {
       ...user,
-      logged_in: true
+      logged_in: true,
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-
-router.get ('/login', (req, res) => {
+router.get('/login', (req, res) => {
   if (req.session.logged_in) {
     res.redirect('/dashboard');
     return;
   }
 
-  res.render ('login');
+  res.render('login');
 });
 
 router.get('/signup', (req, res) => {
   if (req.session.logged_in) {
-    res.redirect ('/dashboard');
+    res.redirect('/dashboard');
     return;
   }
 
