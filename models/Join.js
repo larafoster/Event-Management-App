@@ -7,10 +7,10 @@ Join.init(
   {
     username: {
         type: DataTypes.STRING,
-        allowNull: true,
+        allowNull: false,
         references: {
         model: 'user', 
-        key: 'username' //to join they enter their username and the event is added to their joined events 
+        key: 'id' //to join they enter their username and the event is added to their joined events 
       },
     },
   },
@@ -23,4 +23,4 @@ Join.init(
   }
 );
 
-//module.exports = Join;
+module.exports = Join;

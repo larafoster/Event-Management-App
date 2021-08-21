@@ -1,32 +1,27 @@
 const User = require('./User');
 const Event = require('./Event');
-// const Comment = require('./Comment');
-// const Join = require('./Join'); 
+const Comment = require('./Comment');
+//const Join = require('./Join');
 
-User.hasMany(Event, {
+User.belongsToMany(Event, {
+  through: {
+    model: Comment,
+    unique: false
+  },
+  as: 'planned_events'
+});
+
+Event.belongsToMany(User, {
+  through: {
+    model: Comment,
+    unique: false
+  },
+  as: 'event_goers'
+});
+
+/*Event.hasMany(Comment, {
   foreignKey: 'user_id',
-  onDelete: 'CASCADE'
-});
+  },
+); */
 
-// User.hasMany(Comment, { 
-//   foreignKey: 'user_id',
-//   onDelete: 'CASCADE'
-// });
-
-// Comment.belongsTo(User, { 
-//   foreignKey: 'user_username',
-//   onDelete: 'CASCADE'
-// });
-
-Event.belongsTo(User, {
-  foreignKey: 'user_id'
-});
-
-
-// Join.belongsTo(Event, {
-//   foreignKey: 'user_username',
-//   onDelete: 'CASCADE'
-// });
-
-
-module.exports = { User, Event };
+module.exports = { User, Event, Comment };
