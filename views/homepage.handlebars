@@ -21,14 +21,15 @@
             <div class="card shadow-sm">
               <img src="https://via.placeholder.com/225" height="225">
               <div class="card-body">
-                <h5 class="card-title"><a href="/event/{{id}}">{{event.name}}</a> <span class="float-end text-muted">{{event.timeData.event_date}}</span></h5>
+                <h5 class="card-title"><a href="/event/{{id}}">{{event.name}}</a> 
+                <small><span class="float-end text-muted">{{event_date}}</span></h5></small>
                 <p class="card-text">{{event.description}}</p>
                 <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn">
                    
                     <button type="button" id="comment-btn" class="btn btn-sm btn-outline-secondary">Comment</button>
-                  </div>
                   <small class="text-muted">{{event.category}}</small>
+                  
+
 
                 </div>
               </div>
