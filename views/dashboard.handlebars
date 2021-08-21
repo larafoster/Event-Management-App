@@ -21,20 +21,24 @@
 
       {{#each events as |event|}}
       <div class="callout callout">
-        <h4><a href="/event/{{event.id}}">{{event.name}}</a></h4>
-        <div class="row">
-        <div class="col-7 d-flex justify-content-start"> {{format_date event.event_date}} | {{ event.event_time}} </div>
-        <div class="col-5 d-flex justify-content-end">Category:  {{event.category}}</div>
-      </div>
-        <div class="row">
-        <div class="col-7 d-flex justify-content-start"> {{event.description}} </div>
-        <div class="col-5 d-flex justify-content-end">Covid Protocols: {{event.covid_items}}</div>
-      </div><hr />
-<div class="d-grid gap-2 d-md-flex justify-content-md-end">
-  <a href="/event/{{event.id}}/edit-event" class="btn btn-warning me-md-2">Edit Event</a>
-</div>      </div>
- {{/each}}
-    </div>
- {{/if}}
+        <div class="d-grid gap-2 d-md-flex justify-content-between">
 
+          <h4><a href="/event/{{event.id}}">{{event.name}}</a></h4>
+          <small class="text-muted">Category: {{event.category}}</small>
+        </div>
+        <div class="col-7 d-flex justify-content-start pb-2"> {{format_date event.event_date}} | {{ event.event_time}}
+        </div>
+        <div class="row">
+          <p> {{event.description}}</p>
+        </div>
+        <div class="d-grid gap-2 d-md-flex justify-content-between align-items-end">
+          <small class="text-muted"> Covid Protocols: {{event.covid_items}}</small>
+          <a href="/event/{{event.id}}/edit-event" class="btn btn-warning me-md-2">Edit Event</a>
+        </div>
+
+      </div>
+      {{/each}}
+    </div>
+    {{/if}}
+</div>
 </main>
