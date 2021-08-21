@@ -1,6 +1,9 @@
-const newFormHandler = async (event) => {
-  event.preventDefault();
+/* const id = document.querySelector('#id').value;
 
+
+const deleteHandler = async function() {
+  await fetch('/api/events/${id}', {
+=======
   const name = document.querySelector('#name').value.trim();
   const description = document.querySelector('#description').value.trim();
 
@@ -38,23 +41,14 @@ const delButtonHandler = async (event) => {
 };
 const deleteClickHandler = async function() {
   await fetch(`/api/event/${Id}`, {
+
     method: 'DELETE'
   });
 
   document.location.replace('/dashboard');
 };
-document
-  .querySelector('#edit-event-form')
-  .addEventListener('submit', newFormHandler);
 
 document
-  .querySelector('#new-event-form')
-  .addEventListener('submit', newFormHandler);
-
-document
-  .querySelector('#event-list')
-  .addEventListener('click', delButtonHandler);
-
-  document
   .querySelector('#delete-btn')
-  .addEventListener('click', deleteClickHandler);
+  .addEventListener('click', deleteHandler);
+ */

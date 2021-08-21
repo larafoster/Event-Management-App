@@ -17,24 +17,48 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
+router.put('/:id', async (req, res) => {
+  try {
+    const eventUpdate = await Event.update(
+      {
+        name: req.body.name,
+        category: req.body.category,
+        description: req.body.description,
+        event_date: req.body.event_date,
+        event_time: req.body.event_time,
+        covid_items: req.body.covid_items
+      },
+      {
+        where: {
+          id: req.params.id,
+        },
+      }
+    );
+    res.status(200).json(eventUpdate);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 router.delete('/:id', withAuth, async (req, res) => {
   try {
-    const eventData = await Event.destroy({
+    const eventDelete = await Event.destroy({
       where: {
         id: req.params.id,
         user_id: req.session.user_id,
       },
     });
 
-    if (!eventData) {
-      res.status(404).json({ message: 'No event found with this id!' });
+    if (!eventDelete) {
+      res.status(404).json({ message: 'No Event found with this id!' });
       return;
     }
 
-    res.status(200).json(eventData);
+    res.status(200).json(eventDelete);
   } catch (err) {
     res.status(500).json(err);
   }
 });
+
 
 module.exports = router;

@@ -1,27 +1,26 @@
-const eventEdit = document.querySelector('input[name="post-id"]').value;
-
-const editFormHandler = async function(event) {
+const id = document.querySelector('#id').value;
+const editForm = async function(event) {
   event.preventDefault();
 
-  const title = document.querySelector('input[name="post-title"]').value;
-  const body = document.querySelector('textarea[name="post-body"]').value;
+const name = document.querySelector('#name').value;
+  const category = document.querySelector('#category').value;
+  const description = document.querySelector('#description').value;
+  const event_date = document.querySelector('#event_date').value;
+  const event_time = document.querySelector('#event_time').value;
+  const covid_items = document.querySelector('#covid_items').value;
 
-  await fetch(`/api/post/${eventEdit}`, {
+  await fetch(`/api/events/${id}`, {
     method: 'PUT',
-    body: JSON.stringify({
-      title,
-      body
+body: JSON.stringify({
+      name, category, description, event_date, event_time, covid_items,
     }),
-    headers: {
-      'Content-Type': 'application/json'
-    }
+    headers: { 'Content-Type': 'application/json' },
   });
 
   document.location.replace('/dashboard');
 };
-
-const deleteClickHandler = async function() {
-  await fetch(`/api/post/${postId}`, {
+const deleteHandler = async function() {
+  await fetch(`/api/events/${id}`, {
     method: 'DELETE'
   });
 
@@ -29,8 +28,8 @@ const deleteClickHandler = async function() {
 };
 
 document
-  .querySelector('#edit-post-form')
-  .addEventListener('submit', editFormHandler);
+  .querySelector('#edit-event-form')
+  .addEventListener('submit', editForm);
 document
   .querySelector('#delete-btn')
-  .addEventListener('click', deleteClickHandler);
+  .addEventListener('click', deleteHandler);

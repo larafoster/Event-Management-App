@@ -1,4 +1,6 @@
-<div class="card my-8">
+  <div class="container d-flex justify-content-center py-5">
+
+    <div class="col-md-6"><div class="card my-8">
 
   <div class="card-body">
     <h2 class="card-title">Create New Event</h2>
@@ -9,34 +11,34 @@
   </div>
   <div class="col-md-6">
     <label for="category" class="form-label">category</label>
-    <select id="category" class="form-select">
-      <option selected>Choose...</option>
-      <option>Arts / Crafts</option>
-      <option>Charity</option>
-      <option>Family Fun</option>
-      <option>Fashion</option>
-      <option>Festivals</option>
-      <option>Food</option>
-      <option>Home Life</option>
-      <option>Pets / Animals</option>
-      <option>Sports</option>
-      <option>Tech / Science</option>
-      <option>Other / Misc</option>
+    <select id="category" class="form-control form-select">
+    <option selected>Choose...</option>
+    <option>Arts / Crafts</option>
+    <option>Charity</option>
+    <option>Family Fun</option>
+    <option>Fashion</option>
+    <option>Festivals</option>
+    <option>Food</option>
+    <option>Home Life</option>
+    <option>Pets / Animals</option>
+    <option>Sports</option>
+    <option>Tech / Science</option>
+    <option>Other / Misc</option>
     </select>
   </div>
   <div class="col-12">
     <div class="mb-3">
   <label for="description" class="form-label">Event Description</label>
-  <textarea class="form-control" id="description" rows="3"></textarea>
+  <input class="text-area form-control" id="description" ></input>
 </div>
   </div>
   <div class="col-md-4">
     <label for="event_date" class="form-label">Event Date</label>
-    <input type="date" id="event_date">  </div>
+    <input type="date" class="form-control" id="event_date">  </div>
   
   <div class="col-md-4">
       <label for="event_time">Event time</label>
-      <input type="time" id="event_time">
+      <input type="time" class="form-control" id="event_time">
   </div>
   <div class="col-md-4">
         <label for="covid_items" class="form-label">Covid Protocols</label>
@@ -54,6 +56,8 @@
   </div>
 </form>
    
+  </div>
+</div>
   </div>
 </div>
 
