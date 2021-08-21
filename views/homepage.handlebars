@@ -1,42 +1,46 @@
-    <section class="py-5 text-center container-fluid bg-light">
-      <div class="row py-lg-2">
-        <div class="col-lg-6 col-md-8 mx-auto">
-          <img src="img/joinme-logo-sm.png" width="300">
-          <h1 class="fw-light">Welcome to Join Me</h1>
-          <p class="lead text-muted">JoinMe is a community-based event management platform that allows anyone to create,
-            share, find and attend events in their area. Browse our featured events or search by date.</p>
-          <p>
-            <a href="/event/new-event" class="btn btn-success my-2">Create a New Event</a>
-            <a href="/dashboard" class="btn btn-secondary my-2">View My Saved Events</a>
-          </p>
-        </div>
-      </div>
-    </section><!-- Loop over each object in the projects array -->
+<section class="py-5 text-center container-fluid bg-light">
+  <div class="row py-lg-2">
+    <div class="col-lg-6 col-md-8 mx-auto">
+      <img src="img/joinme-logo-sm.png" width="300">
+      <h1 class="fw-light">Welcome to Join Me</h1>
+      <p class="lead text-muted">JoinMe is a community-based event management platform that allows anyone to create,
+        share, find and attend events in their area. Browse our featured events or search by date.</p>
+      <p>
+        <a href="/event/new-event" class="btn btn-success my-2">Create a New Event</a>
+        <a href="/dashboard" class="btn btn-secondary my-2">View My Saved Events</a>
+      </p>
+    </div>
+  </div>
+</section><!-- Loop over each object in the projects array -->
 
-    <div class="album py-5">
-      <div class="container">
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-        {{#each events as |event| }}
-          <div class="col">
-            <div class="card shadow-sm">
-              <img src="https://via.placeholder.com/225" height="225">
-              <div class="card-body">
-                <h5 class="card-title"><a href="/event/{{id}}">{{event.name}}</a> 
-                <small><span class="float-end text-muted">{{event_date}}</span></h5></small>
-                <p class="card-text">{{event.description}}</p>
-                <div class="d-flex justify-content-between align-items-center">
-                   
-                    <button type="button" id="comment-btn" class="btn btn-sm btn-outline-secondary">Comment</button>
-                  <small class="text-muted">{{event.category}}</small>
-                  
+<div class="album py-5">
+  <div class="container">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+      {{#each events as |event| }}
+      <div class="col">
+        <div class="card shadow-sm">
+          <img src="https://via.placeholder.com/225" height="225">
+          <div class="card-body">
+            <h5 class="card-title"><a href="/event/{{id}}">{{event.name}}</a>
+              <small><span class="float-end text-muted">{{format_date event_date}}</span>
+            </h5></small>
+            <p class="card-text">{{event.description}}</p>
+            <div class="row">
+              <div class="d-flex justify-content-between ">
 
+                <small class="text-muted">Category: {{event.category}}</small>
+                                         <small class="text-muted">  Created by: {{event.user.username}}</small>   
 
-                </div>
               </div>
             </div>
-          </div>              
-          {{/each}}
           </div>
-            </div>
-          </div>
+          <div class="card-footer bg-transparent">      
+                            <button type="button" id="comment-btn" class="btn btn-sm btn-outline-secondary">Comment</button>
 
+</div>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</div>
