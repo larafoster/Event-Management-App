@@ -8,12 +8,7 @@ const newFormHandler = async function(event) {
   const event_time = document.querySelector('#event_time').value.trim();
   const covid_items = document.querySelector('#covid_items').value.trim();
 
-<<<<<<< HEAD
-  if (name && category && description && event_date && event_time && covid_items) {
-    const response = await fetch(`/events/`, {
-=======
 await fetch(`/api/events`, {
->>>>>>> 4b53034b07d07ac9326f53ff8b97cebe01a304f8
       method: 'POST',
       body: JSON.stringify({
       name, category, description, event_date, event_time, covid_items,
