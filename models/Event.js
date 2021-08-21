@@ -1,7 +1,6 @@
 const {Model, DataTypes} = require ('sequelize');
 const sequelize = require ('../config/connection');
 
-const event_dates = ["6, 12", "7, 4", "8, 21", "9, 13", "9, 25"];
 
 var format = require('date-fns/format');
 class Event extends Model {};
@@ -41,17 +40,18 @@ Event.init(
      hooks: {
       beforeCreate: async (timeData) => {
 
+        const event_dates = ["6, 12", "7, 4", "8, 21", "9, 13", "9, 25"];
+
         for(let i = 0; i < event_dates.length; i++) {
-        
-        timeData.event_date = await format(new Date(event_dates[i]), "MMMM-Qo");
+        timeData.event_date = await format(new Date(event_dates[i]), "MMMM-do");
+        console.log(timeData);
         };
-        console.log(timeData.event_date);
         return timeData;
       },
 
       beforeUpdate: async (updatedTimeData) => {
 
-        updatedTimeData.event_date = await format(new Date(), "MMMM-Qo");
+        updatedTimeData.event_date = await format(new Date(), "MMMM-do");
         return updatedTimeData;
       },
     },
