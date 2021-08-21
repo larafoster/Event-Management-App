@@ -1,6 +1,9 @@
   <div class="container d-flex justify-content-center py-5">
 
-    <div class="col-md-6"><div class="card my-8">
+    <div class="col-md-6">
+           <button type="button" id="delete-btn" class="btn btn-warning mb-2"><i class="fas fa-arrow-left"></i> back</button>
+    <div class="card my-8">
+
     <div class="card my-8">
 
   <div class="card-body">
@@ -32,20 +35,21 @@
   <div class="col-12">
     <div class="mb-3">
   <label for="description" class="form-label">Event Description</label>
-  <textarea class="form-control" name="description" id="description" rows="3" value="{{event.description}}"></textarea>
+  <input class="text-area form-control" name="description" id="description" value="{{event.description}}"></input>
 </div>
   </div>
+  
   <div class="col-md-4">
     <label for="event_date" class="form-label">Event Date</label>
-    <input type="date" name="event_date" id="event_date" value="{{event.event_date}}">  </div>
+    <input type="date" class="form-control" name="event_date" id="event_date" value="{{event.event_date}}">  </div>
   
   <div class="col-md-4">
       <label for="event_time">Event time</label>
-      <input type="time" name="event_time" id="event_time" value="{{event.event_time}}">
+      <input type="time" name="event_time" id="event_time" class="form-control" value="{{event.event_time}}">
   </div>
   <div class="col-md-4">
         <label for="covid_items" class="form-label">Covid Protocols</label>
-    <select id="covid_items" name="covid_items" class="form-select" value="{{event.covid_items}}">
+    <select id="covid_items" name="covid_items" class="form-control form-select" value="{{event.covid_items}}">
       <option selected>  </option>
       <option>Proof of Vaccine</option>
       <option>Mask Required</option>

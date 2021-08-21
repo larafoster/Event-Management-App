@@ -23,12 +23,12 @@
       <div class="callout callout-primary">
         <h4><a href="/event/{{event.id}}">{{event.name}}</a></h4>
         <div class="row">
-        <div class="col-8 d-flex justify-content-start"> {{event.event_date}} | {{event.event_time}} </div>
-        <div class="col-4 d-flex justify-content-end">Category:  {{event.category}}</div>
+        <div class="col-7 d-flex justify-content-start"> {{event.event_date}} | {{event.event_time}} </div>
+        <div class="col-5 d-flex justify-content-end">Category:  {{event.category}}</div>
       </div>
         <div class="row">
-        <div class="col-8 d-flex justify-content-start"> {{event.description}} </div>
-        <div class="col-4 d-flex justify-content-end">Covid Protocols: {{event.covid_items}}</div>
+        <div class="col-7 d-flex justify-content-start"> {{event.description}} </div>
+        <div class="col-5 d-flex justify-content-end">Covid Protocols: {{event.covid_items}}</div>
       </div><hr />
 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
   <a href="/event/{{event.id}}/edit-event" class="btn btn-warning me-md-2">Edit Event</a>
