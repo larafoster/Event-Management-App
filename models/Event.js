@@ -1,7 +1,5 @@
 const {Model, DataTypes} = require ('sequelize');
 const sequelize = require ('../config/connection');
-
-
 var format = require('date-fns/format');
 class Event extends Model {};
 
@@ -19,21 +17,23 @@ Event.init(
     },
     category: {
       type: DataTypes.STRING,
-      allowNull: true,
+      allowNull: false,
     },
     description: {
       type: DataTypes.STRING,
+      allowNull: false,
     },
     event_date: {
-      type: DataTypes.STRING,
+      type: DataTypes.DATE,
+      allowNull: false,
     },
     event_time: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     covid_items: {
       type: DataTypes.STRING,
-      allowNull: true,
+      allowNull: false,
     },
   },
   { 
@@ -55,7 +55,7 @@ Event.init(
         return updatedTimeData;
       },
     },
-
+    
     sequelize,
     timestamps: false,
     freezeTableName: true,
