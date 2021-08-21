@@ -1,17 +1,20 @@
-<div class="card my-8">
+  <div class="container d-flex justify-content-center py-5">
+
+    <div class="col-md-6"><div class="card my-8">
+    <div class="card my-8">
 
   <div class="card-body">
     <h2 class="card-title">Edit Event</h2>
  <form id="edit-event-form" class="card-body row g-3">
   <div class="col-md-6">
-      <input type="hidden" name="event-id" value="{{event.id}}" />
+      <input type="hidden" name="id" id="id" value="{{event.id}}" />
 
     <label for="name" class="form-label">Event Name</label>
-    <input type="text" class="form-control" id="name" value="{{event.name}}">
+    <input type="text" class="form-control" name="name" id="name" value="{{event.name}}">
   </div>
   <div class="col-md-6">
     <label for="category" class="form-label">category</label>
-    <select id="category" class="form-select" value="{{event.category}}">
+    <select name="category" id="category" class="form-select" value="{{event.category}}">
       <option selected>Choose...</option>
       <option>Arts / Crafts</option>
       <option>Charity</option>
@@ -29,21 +32,21 @@
   <div class="col-12">
     <div class="mb-3">
   <label for="description" class="form-label">Event Description</label>
-  <textarea class="form-control" id="description" rows="3" value="{{event.description}}"></textarea>
+  <textarea class="form-control" name="description" id="description" rows="3" value="{{event.description}}"></textarea>
 </div>
   </div>
   <div class="col-md-4">
     <label for="event_date" class="form-label">Event Date</label>
-    <input type="date" id="event_date" value="{{event.event_date}}">  </div>
+    <input type="date" name="event_date" id="event_date" value="{{event.event_date}}">  </div>
   
   <div class="col-md-4">
       <label for="event_time">Event time</label>
-      <input type="time" id="event_time" value="{{event.event_time}}">
+      <input type="time" name="event_time" id="event_time" value="{{event.event_time}}">
   </div>
   <div class="col-md-4">
         <label for="covid_items" class="form-label">Covid Protocols</label>
-    <select id="covid_items" class="form-select" value="{{event.covid_items}}">
-      <option selected>Choose...</option>
+    <select id="covid_items" name="covid_items" class="form-select" value="{{event.covid_items}}">
+      <option selected>  </option>
       <option>Proof of Vaccine</option>
       <option>Mask Required</option>
       <option>Mask Optional</option>
@@ -59,6 +62,7 @@
 </form>
    
   </div>
+</div>  </div>
 </div>
 
 
