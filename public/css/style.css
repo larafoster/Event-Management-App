@@ -127,7 +127,9 @@ body {
 .text-center {
   text-align: center;
 }
-
+.text-right {
+  text-align: right;
+}
 .totop a {
   color: var(--dark);
 }
