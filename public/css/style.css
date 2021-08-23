@@ -189,11 +189,16 @@ body {
     color: #5bc0de;
 }
 
+.text-blue {
+color: var(--blue);
+}
 
-
-.login-img {
-background-image:url('../img/login-bg.png');
-background-repeat:no-repeat;
-background-size:contain;
-background-position:center;
+.text-lblue {
+color: var(--cyan);
+}
+.text-orange {
+color: var(--orange);
+}
+.text-red {
+color: var(--red);
 }
