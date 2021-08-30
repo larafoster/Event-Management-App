@@ -19,7 +19,7 @@ Event.belongsToMany(User, {
   as: 'event_goers'
 });
 
-/*Event.hasMany(Comment, {
+/* Event.hasMany(Comment, {
   foreignKey: 'user_id',
   },
 ); */

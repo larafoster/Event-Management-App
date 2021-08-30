@@ -1,10 +1,7 @@
 const {Model, DataTypes} = require ('sequelize');
 const sequelize = require ('../config/connection');
-class Event extends Model {}
-
-
-var format = require('date-fns/format');
 class Event extends Model {};
+var format = require('date-fns/format');
 
 Event.init(
   {
