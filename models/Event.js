@@ -36,25 +36,22 @@ Event.init(
       allowNull: false,
     },
   },
-  { 
-     hooks: {
-      beforeCreate: async (timeData) => {
+ { 
+  //    hooks: {
+  //     beforeCreate: async (timeData) => {
+  //     //console.log(timeData.event_date, typeof timeData.event_date)
+  //     //const date = timeData.event_date.split('-');
+  //       // 
+  //     timeData.event_date = await format(new Date(timeData.event_date), "MMMM-do");
+  //       return timeData;
+  //     },
 
-        const event_dates = ["6, 12", "7, 4", "8, 21", "9, 13", "9, 25"];
+  //     beforeUpdate: async (updatedTimeData) => {
 
-        for(let i = 0; i < event_dates.length; i++) {
-        timeData.event_date = await format(new Date(event_dates[i]), "MMMM-do");
-        console.log(timeData);
-        };
-        return timeData;
-      },
-
-      beforeUpdate: async (updatedTimeData) => {
-
-        updatedTimeData.event_date = await format(new Date(), "MMMM-do");
-        return updatedTimeData;
-      },
-    },
+  //       updatedTimeData.event_date = await format(new Date(), "MMMM-do");
+  //       return updatedTimeData;
+  //     },
+  //   },
 
     sequelize,
     timestamps: false,
@@ -65,3 +62,5 @@ Event.init(
 );
 
 module.exports = Event;
+
+

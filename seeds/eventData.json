@@ -4,7 +4,7 @@
     "category": "Food",
     "description": "a market from the farm",
     "event_time": "09:00",
-    "event_date": "2021, 6, 9",
+    "event_date": "2021-06-09",
     "covid_items": "mask optional",
     "user_id": 1
   },
