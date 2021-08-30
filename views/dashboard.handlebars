@@ -1,8 +1,8 @@
 <section class="py-5 text-center container-fluid bg-light">
   <div class="row py-lg-2">
-    <div class="col-lg-6 col-md-8 mx-auto">
+    <div class="col-lg-5 col-md-6 mx-auto">
       <h1 class="fw-light">Welcome to your JoinMe Event Page</h1>
-      <h3>Your are logged in as: {{username}}</h3>
+      <h3>Your are logged in as:<span class="text-red"> {{username}}</span></h3>
       <p class="lead text-muted">
         Here you can see the EVENTS you have created, make any necessary changes and create new events.
       </p>
@@ -24,18 +24,34 @@
         <div class="d-grid gap-2 d-md-flex justify-content-between">
 
           <h4><a href="/event/{{event.id}}">{{event.name}}</a></h4>
-          <small class="text-muted">Category: {{event.category}}</small>
+         <a href="/event/{{event.id}}/edit-event" class="btn btn-warning me-md-2">Edit Event</a>
         </div>
         <div class="col-7 d-flex justify-content-start pb-2"> {{format_date event.event_date}} | {{ event.event_time}}
         </div>
         <div class="row">
           <p> {{event.description}}</p>
+            <small class="text-muted">Category: {{event.category}}</small>
         </div>
         <div class="d-grid gap-2 d-md-flex justify-content-between align-items-end">
           <small class="text-muted"> Covid Protocols: {{event.covid_items}}</small>
-          <a href="/event/{{event.id}}/edit-event" class="btn btn-warning me-md-2">Edit Event</a>
+         
         </div>
+<h3>Spread the word:</h3>
+            <div class="d-grid gap-2 d-md-flex justify-content-between align-items-end">
 
+              <div class="col-md-4 text-center"><a class="twitter-share-button"
+                  href="https://twitter.com/intent/tweet?text=Check out this event {{event.name}} joinme-events.herokuapp.com/event/{{id}}"
+                  target="_blank"> <i class="fab fa-twitter text-lblue fa-2x" aria-hidden="true"></i></a><br>
+                Tweet it </div>
+              <div class="col-md-4 text-center"> <a
+                  href="mailto:?subject=Check out this event - {{event.name}}!&body=I would love for you to JOIN ME!  https://joinme-events.herokuapp.com/event/{{id}}"><i
+                    class="fas fa-envelope text-orange fa-2x" aria-hidden="true"></i></a><br> Send an Email</div>
+
+              <div class="col-md-4 text-center"> <a
+                  href="sms:add contacts&body=Check out this event - {{event.name}}! I would love for you to JOIN ME!  https://joinme-events.herokuapp.com/event/{{id}}"><i
+                    class="fas fa-mobile-alt text-red fa-2x" aria-hidden="true"></i></a><br>Text it </div>
+
+            </div>
       </div>
       {{/each}}
     </div>
